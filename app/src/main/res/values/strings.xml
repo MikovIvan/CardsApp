@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CardsApp</string>
+
+    <string name="filter">Filter</string>
+    <string name="invalid_barcode">Invalid barcode</string>
+    <string name="balance">Balance:</string>
+    <string name="cards">Cards</string>
+</resources>

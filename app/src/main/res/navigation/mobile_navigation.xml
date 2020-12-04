@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_cards">
+
+    <fragment
+        android:id="@+id/nav_cards"
+        android:name="ru.mikov.test.ui.cards.CardsFragment"
+        android:label="@string/cards"
+        tools:layout="@layout/fragment_cards">
+        <action
+            android:id="@+id/action_cardsFragment_to_cardsFilterDialog"
+            app:destination="@id/dialog_cards_filter" />
+        <action
+            android:id="@+id/action_cardsFragment_to_cardFragment"
+            app:destination="@id/page_card" />
+        <action
+            android:id="@+id/action_nav_cards_to_barcodeDialog"
+            app:destination="@id/dialog_barcode" />
+    </fragment>
+    <dialog
+        android:id="@+id/dialog_cards_filter"
+        android:name="ru.mikov.test.ui.dialogs.CardsFilterDialog"
+        android:label="CardsFilterDialog">
+        <argument
+            android:name="selectedFilter"
+            app:argType="string" />
+        <argument
+            android:name="categories"
+            app:argType="string[]" />
+
+    </dialog>
+    <fragment
+        android:id="@+id/page_card"
+        android:name="ru.mikov.test.ui.card.CardFragment"
+        android:label="{name}"
+        tools:layout="@layout/fragment_card">
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="barcodeNumber"
+            app:argType="string" />
+        <argument
+            android:name="barcodeKind"
+            app:argType="string" />
+        <argument
+            android:name="cardImage"
+            app:argType="string" />
+        <argument
+            android:name="cardBalance"
+            app:argType="integer" />
+    </fragment>
+    <dialog
+        android:id="@+id/dialog_barcode"
+        android:name="ru.mikov.test.ui.dialogs.BarcodeDialog"
+        android:label="BarcodeDialog" >
+        <argument
+            android:name="barcodeKind"
+            app:argType="string" />
+        <argument
+            android:name="barcodeNumber"
+            app:argType="string" />
+    </dialog>
+</navigation>
